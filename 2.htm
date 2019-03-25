@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>牙科手術同意書</title>
+    <script>
+        function myFunction() {
+            var a,b;
+            a = document.getElementById("name").value;
+            if (a == " ") { alert("input is empty"); }
+            b = document.getElementById("phone").value;
+            if (isNaN(b) == true) { alert("not number"); }
+        }
+        function myFunction2() {
+            var a;
+            obj = JSON.parse('{"name": "Chalmers", "telecom": 12345678, "gender": "male", "birthDate": "1974-12-25"}');
+            document.getElementById("name").value = obj.name;
+            document.getElementById("phone").value = obj.telecom;
+            a = obj.gender;
+            if (a == "male") { document.getElementById("male").checked = true; }
+            if (a == "female") { document.getElementById("female").checked = true; }
+            document.getElementById("birth").value = obj.birthDate;
+        }
+        function myFunction3() {
+            var a, b,c,d;
+            a = document.getElementById("name").value;
+            b = document.getElementById("phone").value;
+            if(document.getElementById("male").checked==true)
+            {
+                c="male";
+            }
+            if (document.getElementById("female").checked == true) {
+                c = "female";
+            }
+            d = document.getElementById("birth").value;
+        alert(a+b+c+d);
+        }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>填寫基本資料</legend>
+        病人姓名:<br />
+        <input type="text" id="name" name="病人姓名" value=" " />
+        <br />
+        性別:<br />
+        <input type="radio" name="gender" value="male" id="male" />
+        Male<br />
+        <input type="radio" name="gender" value="female" id="female" />
+        Female<br />
+        電話:<br />
+        <input type="text" id="phone" name="電話" value=" " />
+        <br />
+        生日:<br />
+        <input type="text" name="生日" value="年/月/日" id="birth" />
+        <br />
+    </fieldset>
+    <br />
+    <br />
+
+    <button onclick="myFunction()">check</button>
+    <button onclick="myFunction2()">loadPatient</button>
+    <button onclick="myFunction3()">getPatient</button>
+
+</body>
+</html>
